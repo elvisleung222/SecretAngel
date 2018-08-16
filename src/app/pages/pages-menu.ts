@@ -8,6 +8,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Secret Angel',
+    icon: 'nb-home',
+    link: '/pages/sa',
+    home: true,
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
