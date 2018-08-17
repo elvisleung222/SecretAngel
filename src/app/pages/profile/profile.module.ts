@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
-import { SecretAngelComponent } from './secretangel.component';
+import { ProfileComponent } from './profile.component';
 
 @NgModule({
   imports: [
     ThemeModule,
   ],
   declarations: [
-    SecretAngelComponent,
+    ProfileComponent,
   ],
 })
-export class SecretAngelModule { }
+export class ProfileModule { }

@@ -14,6 +14,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: '已標籤',
+    icon: 'nb-home',
+    link: '/pages/bookmark',
+    home: true,
+  },
+  {
+    title: '配對結果',
+    icon: 'nb-home',
+    link: '/pages/result',
+    home: true,
+  },
+  {
+    title: '個人資料',
+    icon: 'nb-home',
+    link: '/pages/profile',
+    home: true,
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
