@@ -26,7 +26,7 @@ import { StateService } from '../../../@core/data/state.service';
                    responsive
                    [end]="sidebar.id === 'end'">
         <nb-sidebar-header *ngIf="currentTheme !== 'corporate'">
-          <a href="/#/pages/sa" class="btn btn-hero-success main-btn">
+          <a href="/pages/sa" class="btn btn-hero-success main-btn">
             <img src="../../../../favicon.png" style="width: 28px;" /> <span> Angels</span>
           </a>
         </nb-sidebar-header>
