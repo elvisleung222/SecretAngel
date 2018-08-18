@@ -13,5 +13,13 @@
     [class.left]="true">
     <nb-action><a href="#">關於我們</a></nb-action>
     <nb-action><a href="#">遊戲玩法</a></nb-action>
+    <nb-action *ngIf="isLogin">
+      <i class="nb-person"  style="font-size: 20px;"></i> 
+      leung251v2@gmail.com 
+      (<a href="#" (click)="logout()">登出</a>)
+    </nb-action>
+    <nb-action *ngIf="!isLogin">
+      <button class="btn btn-hero-danger btn-demo" routerLink="/auth/login">登入</button>
+    </nb-action>
   </nb-actions>
 </div>
