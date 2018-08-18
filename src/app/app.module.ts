@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,64 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: 'email',
+          token: {
+            class: NbAuthJWTToken,
+            key: 'idToken', // this parameter tells where to look for the token
+          },
+          baseEndpoint: '',
+          login: {
+            // ...
+            endpoint: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w',
+            method: 'post',
+            redirect: {
+              success: '/',
+              failure: null,
+            },
+            defaultErrors: ['Login/Email combination is not correct, please try again.'],
+            defaultMessages: ['You have been successfully logged in.'],
+          },
+          register: {
+            rememberMe: true,
+            endpoint: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w',
+            method: 'post',
+            redirect: {
+              success: null,
+              failure: null,
+            },
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['You have been successfully registered.'],
+          },
+          requestPass: {
+            endpoint: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w',
+            method: 'post',
+            redirect: {
+              success: null,
+              failure: null,
+            },
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['Your password has been successfully changed.'],
+          },
+
+          logout: {
+            alwaysFail: false,
+            endpoint: '',
+            method: 'get',
+            redirect: {
+              success: '/',
+              failure: '/',
+            },
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['You have been successfully logged out.'],
+          },
+
+        }),
+      ],
+      forms: {},
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [
