@@ -27,10 +27,7 @@ import {
 } from './components';
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import {
-  OneColumnLayoutComponent,
-  SampleLayoutComponent,
-  ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
+  MenuLayoutComponent,
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
@@ -58,10 +55,7 @@ const NB_MODULES = [
 const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
-  OneColumnLayoutComponent,
-  SampleLayoutComponent,
-  ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
+  MenuLayoutComponent,
 ];
 
 const ENTRY_COMPONENTS = [

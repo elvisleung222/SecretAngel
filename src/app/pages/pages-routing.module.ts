@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SecretAngelComponent } from './secretangel/secretangel.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { ResultComponent } from './result/result.component';
@@ -12,10 +11,6 @@ const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
-    {
-      path: 'dashboard',
-      component: DashboardComponent,
-    },
     {
       path: 'sa',
       component: SecretAngelComponent,

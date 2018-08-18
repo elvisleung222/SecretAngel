@@ -14,7 +14,7 @@ import { StateService } from '../../../@core/data/state.service';
 // TODO: move layouts into the framework
 @Component({
   selector: 'ngx-sample-layout',
-  styleUrls: ['./sample.layout.scss'],
+  styleUrls: ['./menu.layout.scss'],
   template: `
     <nb-layout [center]="layout.id === 'center-column'" windowMode>
       <nb-layout-header fixed>
@@ -26,8 +26,8 @@ import { StateService } from '../../../@core/data/state.service';
                    responsive
                    [end]="sidebar.id === 'end'">
         <nb-sidebar-header *ngIf="currentTheme !== 'corporate'">
-          <a href="#" class="btn btn-hero-success main-btn">
-            <i class="ion ion-social-github"></i> <span>Support Us</span>
+          <a href="/#/pages/sa" class="btn btn-hero-success main-btn">
+            <img src="../../../../favicon.png" style="width: 28px;" /> <span> Angels</span>
           </a>
         </nb-sidebar-header>
         <ng-content select="nb-menu"></ng-content>
@@ -58,7 +58,7 @@ import { StateService } from '../../../@core/data/state.service';
     </nb-layout>
   `,
 })
-export class SampleLayoutComponent implements OnDestroy {
+export class MenuLayoutComponent implements OnDestroy {
 
   subMenu: NbMenuItem[] = [
     {

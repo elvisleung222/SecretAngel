@@ -2,41 +2,29 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
-    icon: 'nb-home',
-    link: '/pages/dashboard',
-    home: true,
-  },
-  {
-    title: 'Secret Angel',
-    icon: 'nb-home',
-    link: '/pages/sa',
-    home: true,
-  },
-  {
     title: '已標籤',
-    icon: 'nb-home',
+    icon: 'ion ion-bookmark',
     link: '/pages/bookmark',
     home: true,
   },
   {
     title: '配對結果',
-    icon: 'nb-home',
+    icon: 'ion ion-clipboard',
     link: '/pages/result',
     home: true,
   },
   {
     title: '個人資料',
-    icon: 'nb-home',
+    icon: 'nb-person',
     link: '/pages/profile',
     home: true,
   },
   {
-    title: 'FEATURES',
+    title: '暫用',
     group: true,
   },
   {
-    title: 'Auth',
+    title: 'Auth (暫用)',
     icon: 'nb-locked',
     children: [
       {

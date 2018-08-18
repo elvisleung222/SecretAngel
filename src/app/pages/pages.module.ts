@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { SecretAngelModule } from './secretangel/secretangel.module';
 import { BookmarkModule } from './bookmark/bookmark.module';
 import { ResultModule } from './result/result.module';
@@ -18,7 +17,6 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    DashboardModule,
     SecretAngelModule,
     BookmarkModule,
     ResultModule,
