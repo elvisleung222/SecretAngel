@@ -7,6 +7,12 @@
   justify-content: space-between;
   width: 100%;
 
+  nb-action {
+    a {
+      text-decoration: none;
+    }
+  }
+  
   .left {
     display: flex;
     width: 100%;
