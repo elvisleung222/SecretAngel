@@ -31,7 +31,7 @@ import { NbAuthResult } from '@nebular/auth';
           <div *ngFor="let message of messages">{{ message }}</div>
         </div>
 
-        <div class="form-group">
+        <!-- div class="form-group">
           <label for="input-name" class="sr-only">Full name</label>
           <input name="fullName" [(ngModel)]="user.fullName" id="input-name" #fullName="ngModel"
                  class="form-control" placeholder="Full name"
@@ -51,16 +51,30 @@ import { NbAuthResult } from '@nebular/auth';
             to {{getConfigValue('forms.validation.fullName.maxLength')}}
             characters
           </small>
-        </div>
+        </div -->
 
         <div class="form-group">
-          <label for="input-email" class="sr-only">Email address</label>
-          <input name="email" [(ngModel)]="user.email" id="input-email" #email="ngModel"
-                 class="form-control" placeholder="Email address" pattern=".+@.+\..+"
-                 [class.form-control-danger]="email.invalid && email.touched"
-                 [required]="getConfigValue('forms.validation.email.required')">
+          <div class="row">
+            <label for="input-email" class="sr-only">Email address</label>
+            <div class="col-md-5 input-group" style="padding-right: 0px; !important">
+              <input name="email_prefix" [(ngModel)]="user.email_prefix" id="input-email" #email="ngModel"
+                    class="form-control" placeholder="Email prefix"
+                    [class.form-control-danger]="email.invalid && email.touched"
+                    [required]="getConfigValue('forms.validation.email.required')"
+                    autofocus>
+            </div>
+            <div class="col-md-7 input-group" style="padding-left: 0px; !important">
+              <div class="input-group-addon">@</div>
+              <select class="form-control" name="email_suffix" 
+                [(ngModel)]="user.email_suffix"
+                [required]="true">
+                <option value="@gmail.com">gmail.com</option>
+              </select>
+              
+            </div>
+          </div>
           <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors?.required">
-            Email is required!
+          請輸入電郵！
           </small>
           <small class="form-text error"
                  *ngIf="email.invalid && email.touched && email.errors?.pattern">
@@ -115,7 +129,7 @@ import { NbAuthResult } from '@nebular/auth';
 
         <button [disabled]="submitted || !form.valid" class="btn btn-block btn-hero-success"
                 [class.btn-pulse]="submitted">
-          Register
+          註冊
         </button>
       </form>
 
@@ -141,7 +155,7 @@ import { NbAuthResult } from '@nebular/auth';
         </ng-container>
 
         <small class="form-text">
-        己有帳號?? <a routerLink="../login"><strong>登入</strong></a>
+        已有帳號? <a routerLink="../login"><strong>登入</strong></a>
         </small>
       </div>
     </nb-auth-block>
@@ -172,7 +186,8 @@ export class NgxRegisterComponent {
   register(): void {
     this.errors = this.messages = [];
     this.submitted = true;
-
+    this.user.email = this.user.email_prefix + this.user.email_suffix;
+    console.log(this.user);
     this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
       if (result.isSuccess()) {
