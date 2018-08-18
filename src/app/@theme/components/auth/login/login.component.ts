@@ -116,8 +116,8 @@ export class NgxLoginComponent {
   errors: string[] = [];
   messages: string[] = [];
   user: any = {
-    'email': 'leung251v2@gmail.com',
-    'password': '123456',
+    'email': '',
+    'password': '',
     "returnSecureToken": "true",
   };
   submitted: boolean = false;
