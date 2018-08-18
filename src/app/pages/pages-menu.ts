@@ -4,19 +4,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: '已標籤',
     icon: 'ion ion-bookmark',
-    link: '/pages/bookmark',
+    link: '/bookmark',
     home: true,
   },
   {
     title: '配對結果',
     icon: 'ion ion-clipboard',
-    link: '/pages/result',
+    link: '/result',
     home: true,
   },
   {
     title: '個人資料',
     icon: 'nb-person',
-    link: '/pages/profile',
+    link: '/profile',
     home: true,
   },
   {
