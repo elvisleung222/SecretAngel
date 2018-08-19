@@ -1,3 +1,12 @@
-<p>
-  selecteds works!
-</p>
+<div class="selceted-container container">
+	<p class="selected-number">
+		{{selected_number}} / {{selected_limit}}
+	</p>
+
+	<!--TODO Show the corresponding info of the profile by using the profile component-->
+	<nb-card *ngFor="let selected of selecteds">
+		<nb-card-body>
+			{{selected.id}}
+		</nb-card-body>
+	</nb-card>
+</div>
