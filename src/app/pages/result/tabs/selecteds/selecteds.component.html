@@ -9,4 +9,11 @@
 			{{selected.id}}
 		</nb-card-body>
 	</nb-card>
+
+
+	<div *ngIf="!selecteds.length" class="no-selected">
+		<i class="icon ion ion-add no-selected-icon"></i>
+		<i class="icon ion ion-person-add no-selected-icon"></i>
+		<span class="no-selected-message content">未選擇心儀對象</span>
+	</div>
 </div>

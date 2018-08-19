@@ -2,4 +2,19 @@
 	.selected-number {
 		text-align: end;
 	}
+
+	.no-selected {
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+
+		.no-selected-icon {
+			font-size: 10vw;
+		}
+
+		.no-selected-message {
+			padding: 2rem 0;
+		}
+	}
 }
