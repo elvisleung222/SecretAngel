@@ -10,8 +10,7 @@ import { NgxResetPasswordComponent } from './@theme/components/auth/reset-passwo
 
 
 const routes: Routes = [
-  // { path: '', loadChildren: 'app/pages/pages.module#PagesModule' },
-  { path: '', loadChildren: 'app/pages/pages.module#PagesModule'},
+  { path: '', loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',
     component: NgxAuthComponent,
