@@ -1,0 +1,53 @@
+<div *ngIf="isResultStage" class="results-container container">
+	<div *ngIf="results.length">
+		<!--TODO Show the corresponding info of the profile by using the profile component-->
+		<nb-card *ngFor="let result of results">
+			<nb-card-body>
+				{{result.id}}
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div *ngIf="!results.length" class="no-result">
+		<i class="icon ion ion-sad no-result-icon"></i>
+		<span class="no-result-message content">暫時未有成功配對</span>
+	</div>
+
+	<hr class="horizontal-line">
+
+	<p class="title">對你心儀的人</p>
+
+	<div *ngIf="admirers.length">
+		<!--TODO Show the corresponding info of the profile by using the profile component-->
+		<nb-card *ngFor="let admirer of admirers">
+			<nb-card-body class="admirer-item" (click)="getAdmirerTel(content, admirer.id)">
+				{{admirer.id}}
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div *ngIf="!admirers.length" class="no-admirer">
+		<i class="icon ion ion-heart-broken no-admirer-icon"></i>
+		<span class="no-admirer-message content">暫時未有對你心儀的人</span>
+	</div>
+</div>
+
+<div *ngIf="!isResultStage" class="container not-in-result-stage">
+	<i class="icon nb-info not-in-result-stage-icon"></i>
+	<span class="not-in-result-stage-message content">請等候結果公佈</span>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">對你心儀的人</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		確定{{admirerId}}向主動出擊?
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-info" (click)="c('Confirm click')">確定</button>
+		<button type="button" class="btn btn-danger" (click)="d('Cancel click')">取消</button>
+	</div>
+</ng-template>

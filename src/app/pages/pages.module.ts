@@ -10,22 +10,22 @@ import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
 const PAGES_COMPONENTS = [
-  PagesComponent,
+	PagesComponent,
 ];
 
 @NgModule({
-  imports: [
-    PagesRoutingModule,
-    ThemeModule,
-    SecretAngelModule,
-    BookmarkModule,
-    ResultModule,
-    ProfileModule,
-    MiscellaneousModule,
-  ],
-  declarations: [
-    ...PAGES_COMPONENTS,
-  ],
+	imports: [
+		PagesRoutingModule,
+		ThemeModule,
+		SecretAngelModule,
+		BookmarkModule,
+		ResultModule,
+		ProfileModule,
+		MiscellaneousModule,
+	],
+	declarations: [
+		...PAGES_COMPONENTS,
+	],
 })
 export class PagesModule {
 }

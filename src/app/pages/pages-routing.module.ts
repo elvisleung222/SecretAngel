@@ -8,36 +8,37 @@ import { ResultComponent } from './result/result.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [{
-  path: '',
-  component: PagesComponent,
-  children: [
-    {
-      path: 'sa',
-      component: SecretAngelComponent,
-    },
-    {
-      path: 'bookmark',
-      component: BookmarkComponent,
-    },
-    {
-      path: 'result',
-      component: ResultComponent,
-    },
-    {
-      path: 'profile',
-      component: ProfileComponent,
-    },
-    {
-      path: '',
-      redirectTo: 'sa',
-      pathMatch: 'full',
-    },
-  ],
+	path: '',
+	component: PagesComponent,
+	children: [
+		{
+			path: 'sa',
+			component: SecretAngelComponent,
+		},
+		{
+			path: 'bookmark',
+			component: BookmarkComponent,
+		},
+		{
+			path: 'result',
+			// component: ResultComponent,
+			loadChildren: 'app/pages/result/result.module#ResultModule'
+		},
+		{
+			path: 'profile',
+			component: ProfileComponent,
+		},
+		{
+			path: '',
+			redirectTo: 'sa',
+			pathMatch: 'full',
+		},
+	],
 }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class PagesRoutingModule {
 }

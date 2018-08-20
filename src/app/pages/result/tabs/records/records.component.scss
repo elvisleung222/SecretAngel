@@ -1,0 +1,15 @@
+.records-container {
+	.no-record {
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+
+		.no-record-icon {
+			font-size: 10vw;
+		}
+		.no-record-message {
+			padding: 2rem 0;
+		}
+	}
+}

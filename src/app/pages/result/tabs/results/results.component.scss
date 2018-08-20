@@ -1,0 +1,48 @@
+.results-container {
+	.no-result {
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+
+		.no-result-icon {
+			font-size: 10vw;
+		}
+		.no-result-message {
+			padding: 2rem 0;
+		}
+	}
+
+	.horizontal-line {
+		margin-top: 5rem;
+	}
+
+	.no-admirer {
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+
+		.no-admirer-icon {
+			font-size: 10vw;
+		}
+		.no-admirer-message {
+			padding: 2rem 0;
+		}
+	}
+}
+
+.not-in-result-stage {
+	align-items: center;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+
+	.not-in-result-stage-icon {
+		font-size: 10vw;
+	}
+
+	.not-in-result-stage-message {
+		padding: 2rem 0;
+	}
+}
