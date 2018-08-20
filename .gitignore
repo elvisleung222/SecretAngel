@@ -41,4 +41,4 @@ testem.log
 Thumbs.db
 
 # custom
-deploy.sh
+deploy_dev.sh
