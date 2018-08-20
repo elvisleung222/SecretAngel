@@ -21,11 +21,11 @@ import { NbAuthResult } from '@nebular/auth';
       <form (ngSubmit)="resetPass()" #resetPassForm="ngForm">
 
         <div *ngIf="errors && errors.length > 0 && !submitted" class="alert alert-danger" role="alert">
-          <div><strong>Oh snap!</strong></div>
+          <div><strong>糟糕!</strong></div>
           <div *ngFor="let error of errors">{{ error }}</div>
         </div>
         <div *ngIf="messages && messages.length > 0 && !submitted" class="alert alert-success" role="alert">
-          <div><strong>Hooray!</strong></div>
+          <div><strong>好!</strong></div>
           <div *ngFor="let message of messages">{{ message }}</div>
         </div>
 

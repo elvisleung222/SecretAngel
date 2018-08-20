@@ -39,7 +39,7 @@ import { NbAuthResult } from '@nebular/auth';
                  [required]="getConfigValue('forms.validation.email.required')"
                  autofocus>
           <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors?.required">
-            輸入電郵！
+            請輸入電郵！
           </small>
           <small class="form-text error"
                  *ngIf="email.invalid && email.touched && email.errors?.pattern">
