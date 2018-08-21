@@ -123,7 +123,7 @@ export class ParticipantCardComponent implements OnInit {
     "不是每一次努力都會有收穫，但是，每一次收穫都必須努力，這是一個不公平的不可逆轉的命題。"
   ]
   constructor() {
-    this.id = Math.floor((Math.random() * 100) + 1);
+    this.id = Math.floor((Math.random() * 1000) + 1000);
     this.major = this.majors[Math.floor(Math.random()*this.majors.length)];
     this.college = this.unis[Math.floor(Math.random()*this.unis.length)];
     this.age = Math.floor((Math.random() * 13) + 17);
