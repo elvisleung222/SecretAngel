@@ -17,7 +17,8 @@
 	"scripts": {
 		"ng": "ng",
 		"conventional-changelog": "conventional-changelog",
-		"start": "ng serve",
+		"start-default": "ng serve",
+		"start": "node server.js",
 		"build": "ng build",
 		"build:prod": "npm run build -- --prod --aot",
 		"test": "ng test",
@@ -32,7 +33,7 @@
 		"docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
 		"prepush": "npm run lint:ci",
 		"release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-		"postinstall": "ng build --prod"
+		"postinstall": "ng build"
 	},
 	"dependencies": {
 		"@angular/animations": "6.0.0",
@@ -51,11 +52,13 @@
 		"bootstrap": "4.0.0",
 		"classlist.js": "1.1.20150312",
 		"core-js": "2.5.1",
+		"express": "^4.16.3",
 		"intl": "1.2.5",
 		"ionicons": "2.0.1",
 		"nebular-icons": "1.0.8",
 		"normalize.css": "6.0.0",
 		"pace-js": "1.0.2",
+		"path": "^0.12.7",
 		"roboto-fontface": "0.8.0",
 		"rxjs": "^6.1.0",
 		"rxjs-compat": "^6.1.0",
