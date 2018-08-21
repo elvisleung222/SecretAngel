@@ -1,0 +1,40 @@
+<nb-card accent="info" class="participant-card">
+	<nb-card-header>
+		<div>
+			<button class="play-button btn btn-success btn-round btn-demo btn-sm">
+				<i class="play-icon nb-arrow-dropright"></i>
+			</button>&nbsp;
+			<span class="user-number text-success">{{id}}</span>&nbsp;
+			<span class="major text-hint">{{major}}, {{college}}</span>
+		</div>
+		<div>
+			<nb-actions size="medium">
+				<nb-action icon="ion ion-bookmark"></nb-action>
+				<nb-action icon="ion ion-heart"></nb-action>
+			</nb-actions>
+		</div>
+	</nb-card-header>
+	<nb-card-body>
+		<div class="tag-container">
+			<div class="tag">
+			<mark class="color bg-danger">F {{age}}</mark>
+			</div>
+			<div class="tag">
+				<mark class="color bg-warning">{{height}} cm</mark>
+			</div>
+			<div class="tag">
+				<mark class="color bg-info">{{weight}} kg</mark>
+			</div>
+			<div class="tag">
+				<mark class="color bg-success">{{horoscope}}</mark>
+			</div>
+			<div class="tag">
+				<mark class="color bg-primary">{{smoke}}</mark>
+			</div>
+
+		</div>
+		<div class="description-container">
+			<span class="description">{{description}}</span>
+		</div>
+	</nb-card-body>
+</nb-card>
