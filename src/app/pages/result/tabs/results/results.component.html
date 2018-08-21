@@ -1,11 +1,7 @@
 <div *ngIf="isResultStage" class="results-container container">
 	<div *ngIf="results.length">
 		<!--TODO Show the corresponding info of the profile by using the profile component-->
-		<nb-card *ngFor="let result of results">
-			<nb-card-body>
-				{{result.id}}
-			</nb-card-body>
-		</nb-card>
+		<participant-card *ngFor="let result of results"></participant-card>
 	</div>
 	<div *ngIf="!results.length" class="no-result">
 		<i class="icon ion ion-sad no-result-icon"></i>
@@ -18,11 +14,7 @@
 
 	<div *ngIf="admirers.length">
 		<!--TODO Show the corresponding info of the profile by using the profile component-->
-		<nb-card *ngFor="let admirer of admirers">
-			<nb-card-body class="admirer-item" (click)="getAdmirerTel(content, admirer.id)">
-				{{admirer.id}}
-			</nb-card-body>
-		</nb-card>
+		<participant-card *ngFor="let admirer of admirers" (click)="getAdmirerTel(content, admirer.id)"></participant-card>
 	</div>
 	<div *ngIf="!admirers.length" class="no-admirer">
 		<i class="icon ion ion-heart-broken no-admirer-icon"></i>

@@ -1,11 +1,8 @@
 <div class="records-container container">
 	<div *ngIf="records.length">
 		<!--TODO Show the corresponding info of the profile by using the profile component-->
-		<nb-card *ngFor="let record of records">
-			<nb-card-body>
-				{{record.id}}
-			</nb-card-body>
-		</nb-card>
+		<participant-card  *ngFor="let record of records"></participant-card>
+
 	</div>
 
 	<div *ngIf="!records.length" class="no-record">

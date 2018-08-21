@@ -4,12 +4,7 @@
 	</p>
 
 	<!--TODO Show the corresponding info of the profile by using the profile component-->
-	<nb-card *ngFor="let selected of selecteds">
-		<nb-card-body>
-			{{selected.id}}
-		</nb-card-body>
-	</nb-card>
-
+	<participant-card *ngFor="let selected of selecteds"></participant-card>
 
 	<div *ngIf="!selecteds.length" class="no-selected">
 		<i class="icon ion ion-add no-selected-icon"></i>
