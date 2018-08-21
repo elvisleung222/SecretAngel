@@ -1,0 +1,55 @@
+.participant-card {
+	nb-card-header {
+		padding-bottom: 5px;
+		padding-top: 5px;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+
+		.play-button {
+			padding: 3px;
+			height: 28px;
+			width: 28px;
+			border-radius: 20px;
+			vertical-align: top;
+
+			.play-icon {
+				font-size: 20px;
+			}
+		}
+
+		.user-number {
+			font-size: 27px;
+		}
+
+		.major {
+			font-size: 15px;
+		}
+
+		nb-actions {
+		}
+	}
+
+	nb-card-body {
+		.tag-container {
+			padding-bottom: 1rem;
+			display: flex;
+			flex-wrap: wrap;
+
+			.tag {
+				margin-right: 5px;
+				margin-bottom: 1rem;
+
+				mark {
+					border-radius: 100px;
+					padding: 5px 10px;
+				}
+			}
+		}
+
+		.description-container {
+			.description {
+			}
+		}
+	}
+}

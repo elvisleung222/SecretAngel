@@ -2,60 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'participant-card',
-	template: `
-		<style>
-			.user-number {
-				font-size: 27px;
-			}
-
-			.major {
-				font-size: 15px;
-			}
-
-			mark {
-				border-radius: 100px;
-				padding-right: 4px;
-				padding-left: 4px;
-				margin-right: 3px;
-			}
-		</style>
-		<!-- *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" -->
-		<nb-card accent="info">
-			<nb-card-header style="
-      padding-bottom: 5px;
-      padding-top: 5px;
-      position: relative;
-    ">
-				<button class="btn btn-success btn-round btn-demo btn-sm" style="
-        padding: 3px;
-        height: 28px;
-        border-radius: 20px;
-        vertical-align: top;
-      ">
-					<i class="nb-arrow-dropright" style="font-size: 20px;"></i>
-				</button>&nbsp;
-				<span class="user-number text-success">{{id}}</span>&nbsp;
-				<span class="major text-hint">{{major}}, {{college}}</span>
-				<nb-actions size="medium" style="
-          position: absolute;
-          right: 0px;
-          top: 6px;
-      ">
-					<nb-action icon="ion ion-bookmark"></nb-action>
-					<nb-action icon="ion ion-heart"></nb-action>
-				</nb-actions>
-			</nb-card-header>
-			<nb-card-body>
-				<mark class="color bg-danger">F {{age}}</mark>
-				<mark class="color bg-warning">{{height}} cm</mark>
-				<mark class="color bg-info">{{weight}} kg</mark>
-				<mark class="color bg-success">{{horoscope}}</mark>
-				<mark class="color bg-primary">{{smoke}}</mark>
-				<br/><br/>
-				<span style="margin-top: 3px;">{{description}}</span>
-			</nb-card-body>
-		</nb-card>
-	`,
+	templateUrl: './participant-card.component.html',
+	styleUrls: ['./participant-card.component.scss'],
 })
 export class ParticipantCardComponent implements OnInit {
 	id: number;
@@ -135,8 +83,6 @@ export class ParticipantCardComponent implements OnInit {
 		this.horoscope = this.horoscopes[Math.floor(Math.random() * this.horoscopes.length)];
 		this.smoke = this.smokes[Math.floor(Math.random() * this.smokes.length)];
 		this.description = this.desc[Math.floor(Math.random() * this.desc.length)];
-
-
 	}
 
 	ngOnInit() {
