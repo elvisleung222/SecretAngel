@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="xlarge">
+    <nb-card>
       <nb-card-header>
         個人資料
       </nb-card-header>
@@ -8,7 +8,7 @@
         預覽：
         <participant-card></participant-card>
       </nb-card-body>
-      <nb-card-footer>
+      <nb-card-footer [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="xlarge">
           <div class="form-horizontal">
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 form-control-label">大學</label>
