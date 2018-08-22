@@ -1,4 +1,9 @@
 import {Component, OnDestroy} from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Component({
   selector: 'ngx-profile',
@@ -16,19 +21,51 @@ export class ProfileComponent implements OnDestroy {
   smoke: string;
   description: string;
 
-  constructor() {
+
+  constructor(private http:HttpClient) {
+    this.http.get('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/user/elvis').subscribe(
+      (data) => {
+        console.log(data);
+      }
+    )
   }
 
   submit(){
-    console.log(this.major);
-    console.log(this.college);
-    console.log(this.dob);
-    console.log(this.status_current);
-    console.log(this.status_times);
-    console.log(this.height);
-    console.log(this.weight);
-    console.log(this.smoke);
-    console.log(this.description);
+    this.http.patch('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/user/elvis', {
+      "fields": {
+        "major": {
+         "stringValue": String(this.major)
+        },
+        // "college": {
+        //  "stringValue": this.college
+        // },
+        // "dob": {
+        //  "stringValue": this.dob
+        // },
+        // "status_current": {
+        //  "stringValue": this.status_current
+        // },
+        // "status_times": {
+        //  "stringValue": this.status_times
+        // },
+        // "height": {
+        //  "stringValue": this.height
+        // },
+        // "weight": {
+        //  "stringValue": this.weight
+        // },
+        // "smoke": {
+        //  "stringValue": this.smoke
+        // },
+        // "description": {
+        //  "stringValue": this.description
+        // },
+       }
+    },httpOptions).subscribe(
+      (data) => {
+        console.log(data)
+      }
+    )
   }
   ngOnDestroy() {
   }
