@@ -10,7 +10,7 @@ import { getDeepFromObject } from '@nebular/auth/helpers';
 
 import { NbAuthService } from '@nebular/auth';
 import { NbAuthResult } from '@nebular/auth';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'nb-register',
@@ -175,7 +175,8 @@ export class NgxRegisterComponent {
 
   constructor(protected service: NbAuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
-              protected router: Router) {
+              protected router: Router,
+              private http:HttpClient) {
 
     this.redirectDelay = this.getConfigValue('forms.register.redirectDelay');
     this.showMessages = this.getConfigValue('forms.register.showMessages');
@@ -191,7 +192,15 @@ export class NgxRegisterComponent {
     this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
       if (result.isSuccess()) {
-        this.messages = result.getMessages();
+        console.log('result:',result.getToken());
+        this.http.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w', {
+          "requestType": "VERIFY_EMAIL",
+	        "idToken": String(result.getToken())
+        }).subscribe(()=>{
+          this.messages = result.getMessages();
+          this.messages.push("電郵已成功發出，請到閣下郵箱激活帳號。")
+        })
+        
       } else {
         // this.errors = result.getErrors();
         this.errors = [result.getResponse()['error']['error']['message']];

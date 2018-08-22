@@ -10,6 +10,7 @@ import { getDeepFromObject } from '@nebular/auth/helpers';
 
 import { NbAuthService } from '@nebular/auth';
 import { NbAuthResult } from '@nebular/auth';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'nb-login',
@@ -125,7 +126,8 @@ export class NgxLoginComponent {
 
   constructor(protected service: NbAuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
-              protected router: Router) {
+              protected router: Router,
+              private http:HttpClient) {
 
     this.redirectDelay = this.getConfigValue('forms.login.redirectDelay');
     this.showMessages = this.getConfigValue('forms.login.showMessages');
@@ -139,19 +141,35 @@ export class NgxLoginComponent {
 
     this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
+      var verified = false;
+      
+      this.http.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w', {
+        "idToken": String(result.getToken())
+      }).subscribe((data)=>{
+        if (data['users'][0]['emailVerified'] == true){
+          // verified
+          if (result.isSuccess()) {
+            this.messages = result.getMessages();
+          } else {
+            this.errors = result.getErrors();
+          }
+    
+          const redirect = result.getRedirect();
+          if (redirect) {
+            setTimeout(() => {
+              return this.router.navigateByUrl(redirect);
+            }, this.redirectDelay);
+          }
+        }
+        else{
+          // not verified
+          console.log()
+          this.errors.push('你的帳號還未激活');
+          this.messages = [];
+          this.service.logout('email').subscribe(()=>{});
+        }
+      })
 
-      if (result.isSuccess()) {
-        this.messages = result.getMessages();
-      } else {
-        this.errors = result.getErrors();
-      }
-
-      const redirect = result.getRedirect();
-      if (redirect) {
-        setTimeout(() => {
-          return this.router.navigateByUrl(redirect);
-        }, this.redirectDelay);
-      }
     });
   }
 
