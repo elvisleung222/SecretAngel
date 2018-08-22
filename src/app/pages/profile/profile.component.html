@@ -9,11 +9,11 @@
         <participant-card></participant-card>
       </nb-card-body>
       <nb-card-footer>
-          <form class="form-horizontal">
+          <div class="form-horizontal">
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 form-control-label">大學</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="" placeholder="CUHK" disabled>
+                <input type="email" [(ngModel)]="college" class="form-control" id="" placeholder="CUHK" disabled>
               </div>
             </div>
 
@@ -21,7 +21,7 @@
               <label for="inputEmail3" class="col-sm-2 form-control-label">主修</label>
               <div class="col-sm-10">
                   <div class="form-group">
-                    <select class="form-control">
+                    <select class="form-control" [(ngModel)]="major">
                       <option>Nursing</option>
                       <option>Computer Science</option>
                       <option>Art</option>
@@ -34,7 +34,7 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 form-control-label">出生日期</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="">
+                <input type="date" class="form-control" id="" [(ngModel)]="dob">
               </div>
             </div>
 
@@ -42,7 +42,7 @@
               <label for="inputEmail3" class="col-sm-2 form-control-label">抽煙</label>
               <div class="col-sm-10">
                   <div class="form-group">
-                    <select class="form-control">
+                    <select class="form-control" [(ngModel)]="smoke">
                       <option>是</option>
                       <option>不是</option>
                     </select>
@@ -55,7 +55,7 @@
               <div class="col-sm-5">
                 <div class="form-group">
                   <label for="inputFirstName">狀態</label>
-                  <select class="form-control">
+                  <select class="form-control" [(ngModel)]="status_current">
                     <option>A (單身)</option>
                     <option>O (交往中)</option>
                     <option>C (一言難盡)</option>
@@ -65,7 +65,7 @@
               <div class="col-sm-5">
                 <div class="form-group">
                   <label for="inputLastName">拍拖次數</label>
-                  <select class="form-control">
+                  <select class="form-control" [(ngModel)]="status_times">
                     <option>秘密</option>
                     <option>0</option>
                     <option>1</option>
@@ -80,7 +80,7 @@
               <label for="inputEmail3" class="col-sm-2 form-control-label">身高 (cm)</label>
               <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="number" class="form-control" id="" min="140" max="200">
+                    <input type="number" class="form-control" id="" min="140" max="200" [(ngModel)]="height">
                   </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
               <label for="inputEmail3" class="col-sm-2 form-control-label">體重 (kg)</label>
               <div class="col-sm-10">
                   <div class="form-group">
-                    <input type="number" class="form-control" id="" min="30" max="100">
+                    <input type="number" class="form-control" id="" min="30" max="100" [(ngModel)]="weight">
                   </div>
               </div>
             </div>
@@ -97,15 +97,15 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 form-control-label text-success">自我介紹</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control form-control-success" id="">
+                <input type="text" class="form-control form-control-success" id="" [(ngModel)]="description">
               </div>
             </div>
             <div class="form-group row">
               <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-warning">儲存</button>
+                <button type="submit" class="btn btn-success" (click)="submit()">儲存</button>
               </div>
             </div>
-          </form>
+          </div>
       </nb-card-footer>
     </nb-card>
   </div>
