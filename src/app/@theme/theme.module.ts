@@ -42,6 +42,8 @@ import { NgxLogoutComponent } from './components/auth/logout/logout.component';
 import { NgxRequestPasswordComponent } from './components/auth/request-password/request-password.component';
 import { NgxResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 
+import { NbSpinnerModule } from '@nebular/theme/components/spinner/spinner.module';
+
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
 const NB_MODULES = [
@@ -59,6 +61,7 @@ const NB_MODULES = [
   NbContextMenuModule,
   NgbModule,
   NbSecurityModule, // *nbIsGranted directive
+  NbSpinnerModule,
 ];
 
 const COMPONENTS = [
