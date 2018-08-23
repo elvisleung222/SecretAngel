@@ -1,4 +1,5 @@
 <nb-card accent="info" class="participant-card">
+
 	<nb-card-header>
 		<div>
 			<button class="play-button btn btn-success btn-round btn-demo btn-sm">
@@ -7,17 +8,22 @@
 			<span class="user-number text-success">{{id}}</span>&nbsp;
 			<span class="major text-hint">{{major}}, {{college}}</span>
 		</div>
-		<div>
-			<nb-actions size="medium">
-				<nb-action icon="ion ion-bookmark"></nb-action>
-				<nb-action icon="ion ion-heart"></nb-action>
-			</nb-actions>
+		<div class="options-group">
+			<div class="btn bookmark-button" href="/profile">
+				<i *ngIf="isBookmarked" class="ion ion-bookmark bookmarked"></i>
+				<i *ngIf="!isBookmarked" class="ion ion-bookmark"></i>
+			</div>
+			<div class="vertical-line"></div>
+			<div class="btn select-button" href=".">
+				<i *ngIf="isSelected" class="ion ion-heart selected"></i>
+				<i *ngIf="!isSelected" class="ion ion-heart"></i>
+			</div>
 		</div>
 	</nb-card-header>
 	<nb-card-body>
 		<div class="tag-container">
 			<div class="tag">
-			<mark class="color bg-danger">F {{age}}</mark>
+			<mark class="color bg-danger">{{gender}} {{age}}</mark>
 			</div>
 			<div class="tag">
 				<mark class="color bg-warning">{{height}} cm</mark>

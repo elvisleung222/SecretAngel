@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'participant-card',
@@ -6,21 +6,15 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./participant-card.component.scss'],
 })
 export class ParticipantCardComponent implements OnInit {
-	id: number;
-	major: string;
-	college: string;
-	age: number;
-	height: number;
-	weight: number;
-	horoscope: string;
-	smoke: string;
-	description: string;
+	@Input() isBookmarked: string;
+	@Input() isSelected: string;
 
-	majors = ["Arts Management", "Education", "Emergency Management", "English/Writing", "Equine Science/Mgmt", "Family & Child Science", "History", "Journalism", "Language Studies", "Non-Profit Management", "Peace/Conflict Studies", "Philosophy", "Political Science", "Social Science", "Sports Turf/Golf Mgmt", "Women/Gender Studies", "Apparel/Textile Design", "Architecture", "Dance", "Film/Broadcast", "Fine/Studio Art", "Graphic Design", "Industrial Design", "Interior Design", "Landscape Architecture", "Music", "Theatre", "Urban Planning", "Video Game Design", "Web Design/Digital Media", "Aerospace Engineering", "Astronomy", "Aviation/Aeronautics", "Biomedical Engineering", "Chemical Engineering", "Civil Engineering", "Computer Science", "Electrical Engineering", "Energy Science", "Engineering", "Imaging Science", "Industrial Engineering", "Industrial Technology", "Materials Science", "Mathematics", "Mechanical Engineering", "Accounting - General", "Business - General", "Construction Management", "Finance & Economics", "Hospitality Management", "Human Resources Mgmt", "Information Systems (MIS)", "Insurance & Risk Mgmt", "National Parks Management", "Public Health Administration", "Sport Management", "Supply Chain Mgmt (Logistics)"];
-	unis = ["HKU", "CUHK", "HKUST", "CityU", "PolyU", "HKBU", "EdU", "OpenU", "LingU", "HKSYU", "ChuHaiU"];
-	horoscopes = ["白羊座", "射手座", "魔羯座", "水瓶座", "金牛座", "雙子座", "巨蟹座", "獅子座", "處女座", "天秤座", "天蠍座", "雙魚座"];
-	smokes = ["抽煙", "不抽煙"]
-	desc = [
+	private genders = ["F", "M"];
+	private majors = ["Arts Management", "Education", "Emergency Management", "English/Writing", "Equine Science/Mgmt", "Family & Child Science", "History", "Journalism", "Language Studies", "Non-Profit Management", "Peace/Conflict Studies", "Philosophy", "Political Science", "Social Science", "Sports Turf/Golf Mgmt", "Women/Gender Studies", "Apparel/Textile Design", "Architecture", "Dance", "Film/Broadcast", "Fine/Studio Art", "Graphic Design", "Industrial Design", "Interior Design", "Landscape Architecture", "Music", "Theatre", "Urban Planning", "Video Game Design", "Web Design/Digital Media", "Aerospace Engineering", "Astronomy", "Aviation/Aeronautics", "Biomedical Engineering", "Chemical Engineering", "Civil Engineering", "Computer Science", "Electrical Engineering", "Energy Science", "Engineering", "Imaging Science", "Industrial Engineering", "Industrial Technology", "Materials Science", "Mathematics", "Mechanical Engineering", "Accounting - General", "Business - General", "Construction Management", "Finance & Economics", "Hospitality Management", "Human Resources Mgmt", "Information Systems (MIS)", "Insurance & Risk Mgmt", "National Parks Management", "Public Health Administration", "Sport Management", "Supply Chain Mgmt (Logistics)"];
+	private unis = ["HKU", "CUHK", "HKUST", "CityU", "PolyU", "HKBU", "EdU", "OpenU", "LingU", "HKSYU", "ChuHaiU"];
+	private horoscopes = ["白羊座", "射手座", "魔羯座", "水瓶座", "金牛座", "雙子座", "巨蟹座", "獅子座", "處女座", "天秤座", "天蠍座", "雙魚座"];
+	private smokes = ["抽煙", "不抽煙"];
+	private desc = [
 		"最初不相識，最終不相認。",
 		"走完同一條街，回到兩個世界。",
 		"在原諒與絕望之間遊盪，唯一的感覺是傷 傷 傷！",
@@ -71,12 +65,26 @@ export class ParticipantCardComponent implements OnInit {
 		"當浸泡在內心深處的回憶，勾勒出輕描淡寫的美麗，你是我年少時青澀的畫卷。",
 		"不要輕易說愛，許下的承諾就是欠下的債！",
 		"不是每一次努力都會有收穫，但是，每一次收穫都必須努力，這是一個不公平的不可逆轉的命題。"
-	]
+	];
+
+
+	protected id: number;
+	protected major: string;
+	protected college: string;
+	protected gender: string;
+	protected age: number;
+	protected height: number;
+	protected weight: number;
+	protected horoscope: string;
+	protected smoke: string;
+	protected description: string;
+
 
 	constructor() {
 		this.id = Math.floor((Math.random() * 1000) + 1000);
 		this.major = this.majors[Math.floor(Math.random() * this.majors.length)];
 		this.college = this.unis[Math.floor(Math.random() * this.unis.length)];
+		this.gender = this.genders[Math.round(Math.random())];
 		this.age = Math.floor((Math.random() * 13) + 17);
 		this.height = Math.floor((Math.random() * 40) + 150);
 		this.weight = Math.floor((Math.random() * 40) + 40);

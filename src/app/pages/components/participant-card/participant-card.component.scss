@@ -18,15 +18,35 @@
 			}
 		}
 
+		.options-group {
+			display: flex;
+
+			.bookmark-button, .select-button {
+				cursor: pointer;
+				padding: 0 1rem;
+
+				i {
+					color: grey;
+					font-size: 28px;
+				}
+
+				.bookmarked, .selected {
+					color: pink;
+				}
+			}
+
+			.vertical-line {
+				border: 1px solid lightgrey;
+				margin: 3px 0;
+			}
+		}
+
 		.user-number {
 			font-size: 27px;
 		}
 
 		.major {
 			font-size: 15px;
-		}
-
-		nb-actions {
 		}
 	}
 

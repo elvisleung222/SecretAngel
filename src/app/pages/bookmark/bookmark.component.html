@@ -3,7 +3,7 @@
 		<nb-card>
 			<nb-card-header>願望清單</nb-card-header>
 			<nb-card-body>
-				<participant-card  *ngFor="let bookmark of bookmarks"></participant-card>
+				<participant-card  *ngFor="let bookmark of bookmarks" [isBookmarked]="bookmark.isBookmarked" [isSelected]="bookmark.isSelected"></participant-card>
 			</nb-card-body>
 		</nb-card>
 	</div>

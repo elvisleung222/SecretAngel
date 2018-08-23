@@ -8,7 +8,7 @@ export class BookmarkComponent implements OnDestroy {
 	protected bookmarks = [];
 
 	constructor() {
-		this.bookmarks = [{}, {}, {}]
+		this.bookmarks = [{isBookmarked: true, isSelected: false}, {isBookmarked: true, isSelected: true}, {isBookmarked: true, isSelected: false}]
 	}
 
 	ngOnDestroy() {
