@@ -14,7 +14,7 @@
     <nb-action><a href="#">遊戲玩法</a></nb-action>
     <nb-action *ngIf="isLogin">
       <i class="nb-person"  style="font-size: 20px;"></i> 
-      leung251v2@gmail.com 
+      {{email}} 
       (<a href="#" (click)="logout()">登出</a>)
     </nb-action>
     <nb-action *ngIf="!isLogin">

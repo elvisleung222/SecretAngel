@@ -146,6 +146,7 @@ export class NgxLoginComponent {
       this.http.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w', {
         "idToken": String(result.getToken())
       }).subscribe((data)=>{
+        console.log(data)
         if (data['users'][0]['emailVerified'] == true){
           // verified
           if (result.isSuccess()) {
@@ -153,7 +154,7 @@ export class NgxLoginComponent {
           } else {
             this.errors = result.getErrors();
           }
-    
+          localStorage.setItem('email', data['users'][0]['email'])
           const redirect = result.getRedirect();
           if (redirect) {
             setTimeout(() => {

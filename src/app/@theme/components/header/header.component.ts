@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   @Input() position = 'normal';
 
   user: any;
+  email: any = '';
   isLogin: boolean = false;
 
   constructor(private sidebarService: NbSidebarService,
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
               private analyticsService: AnalyticsService,
               private authService: NbAuthService) {
 
+                this.email = localStorage.getItem('email')
                 // this.authService.getToken()
                 // .subscribe((data) => {
                 //   console.log(data.getValue());

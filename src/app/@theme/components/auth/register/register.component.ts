@@ -191,14 +191,57 @@ export class NgxRegisterComponent {
     console.log(this.user);
     this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
+      console.log(result)
       if (result.isSuccess()) {
         console.log('result:',result.getToken());
         this.http.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w', {
           "requestType": "VERIFY_EMAIL",
 	        "idToken": String(result.getToken())
-        }).subscribe(()=>{
+        }).subscribe((data)=>{
+          console.log(data)
           this.messages = result.getMessages();
           this.messages.push("電郵已成功發出，請到閣下郵箱激活帳號。")
+        })
+
+        // create a user record in Firestore
+        this.http.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyCArKJ0r9ZgJlWk9gw9utGwWKIXTtMmd-w', {
+          "idToken": String(result.getToken())
+        }).subscribe((data)=>{
+          this.http.patch('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/users/'+String(data['users'][0]['localId']),{
+          // define all fields for a user  
+          "fields": {
+              "email": {
+                "stringValue": String(this.user.email)
+              },
+              "major": {
+                "stringValue": ""
+              },
+              "college": {
+              "stringValue": ""
+              },
+              "dob": {
+              "stringValue": ""
+              },
+              "status_current": {
+              "stringValue": ""
+              },
+              "status_times": {
+              "stringValue": ""
+              },
+              "height": {
+              "stringValue": ""
+              },
+              "weight": {
+              "stringValue": ""
+              },
+              "smoke": {
+              "stringValue": ""
+              },
+              "description": {
+              "stringValue": ""
+              },
+            }
+          }).subscribe(()=>{})
         })
         
       } else {
