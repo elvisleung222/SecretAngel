@@ -25,7 +25,7 @@ export class ProfileComponent implements OnDestroy {
 
 
   constructor(private http:HttpClient) {
-    this.http.get('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/user/elvis').subscribe(
+    this.http.get('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/users/'+localStorage.getItem('id')).subscribe(
       (data) => {
         this.major = data['fields']['major']['stringValue'];
         this.college = data['fields']['college']['stringValue'];
@@ -43,7 +43,7 @@ export class ProfileComponent implements OnDestroy {
 
   submit(){
     this.loading = true;
-    this.http.patch('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/user/elvis', {
+    this.http.patch('https://firestore.googleapis.com/v1beta1/projects/secretangel-dev/databases/(default)/documents/users/'+localStorage.getItem('id'), {
       "fields": {
         "major": {
          "stringValue": String(this.major)

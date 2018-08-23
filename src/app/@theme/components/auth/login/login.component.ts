@@ -154,7 +154,8 @@ export class NgxLoginComponent {
           } else {
             this.errors = result.getErrors();
           }
-          localStorage.setItem('email', data['users'][0]['email'])
+          localStorage.setItem('email', data['users'][0]['email']);
+          localStorage.setItem('id', data['users'][0]['localId']);
           const redirect = result.getRedirect();
           if (redirect) {
             setTimeout(() => {

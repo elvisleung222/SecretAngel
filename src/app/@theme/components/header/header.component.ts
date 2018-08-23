@@ -53,6 +53,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.isLogin = false;
+    localStorage.clear();
     this.authService.logout('email').subscribe((data) => {
       console.log(data.getMessages());
     });
